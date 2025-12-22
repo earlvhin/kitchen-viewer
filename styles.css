@@ -1,21 +1,28 @@
 /* Custom CSS for Kitchen Visualizer Landing Page */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap');
 
 :root {
-  /* Sage color palette */
-  --sage-50: #f6f7f6;
-  --sage-100: #e3e7e3;
-  --sage-200: #c7d0c7;
-  --sage-300: #9fb1a0;
-  --sage-400: #6d8a70;
-  --sage-500: #52735a;
-  --sage-600: #415c46;
-  --sage-700: #364a3a;
-  --sage-800: #2d3e30;
-  --sage-900: #263329;
+  /* Gold, Black, White color palette */
+  --gold-50: #fef9e7;
+  --gold-100: #fef3c7;
+  --gold-200: #fde68a;
+  --gold-300: #fcd34d;
+  --gold-400: #f4c542;
+  --gold-500: #eab308;
+  --gold-600: #ca8a04;
+  --gold-700: #a16207;
+  --gold-800: #854d0e;
+  --gold-900: #713f12;
+  
+  --black: #1a1a1a;
+  --black-light: #2d2d2d;
+  --black-lighter: #404040;
+  --white: #ffffff;
+  --white-off: #f9f9f9;
   
   /* Typography */
   --font-display: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Merriweather', serif;
 }
 
 * {
@@ -30,44 +37,55 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
 /* Hero Section Styles */
-.hero-bg-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f1f5f9' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+.hero-bg-image {
+  background-image: url('assets/pexels-heyho-7060815.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  background: rgba(26, 26, 26, 0.8);
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section span {
+  color: white !important;
 }
 
 .hero-title {
-  background: linear-gradient(135deg, var(--sage-600), var(--sage-800));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--gold-400);
 }
 
 /* Button Styles */
 .btn-primary {
-  background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
-  color: white;
+  background: var(--gold-500);
+  color: var(--black);
   padding: 1rem 2rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   border: none;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
-  transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  background: var(--gold-600);
 }
 
 .btn-secondary {
-  color: var(--sage-600);
+  color: var(--white);
   padding: 1rem 2rem;
-  border: 1px solid var(--sage-200);
-  border-radius: 0.75rem;
-  background: white;
+  border: 2px solid var(--white);
+  border-radius: 0.5rem;
+  background: transparent;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -75,8 +93,8 @@ body {
 }
 
 .btn-secondary:hover {
-  color: var(--sage-800);
-  border-color: var(--sage-300);
+  color: var(--black);
+  background: var(--white);
 }
 
 /* Step Cards */
@@ -92,22 +110,21 @@ body {
 .step-number {
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, var(--sage-500), var(--sage-600));
-  border-radius: 1rem;
+  background: var(--gold-500);
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--black);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 auto 2rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: box-shadow 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .step-card:hover .step-number {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  background: var(--gold-600);
 }
 
 .step-accent-dot {
@@ -135,39 +152,39 @@ body {
 /* Use Case Cards */
 .use-case-card {
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 1px solid;
   transition: all 0.3s ease;
 }
 
 .use-case-card:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .use-case-card.homeowners {
-  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
-  border-color: #bfdbfe;
+  background: var(--gold-50);
+  border-color: var(--gold-300);
 }
 
 .use-case-card.designers {
-  background: linear-gradient(135deg, #f3e8ff, #fce7f3);
-  border-color: #e9d5ff;
+  background: #f5f5f5;
+  border-color: #e0e0e0;
 }
 
 .use-case-card.builders {
-  background: linear-gradient(135deg, #dcfce7, #d1fae5);
-  border-color: #bbf7d0;
+  background: var(--gold-100);
+  border-color: var(--gold-300);
 }
 
 .use-case-card.retailers {
-  background: linear-gradient(135deg, #fed7aa, #fecaca);
-  border-color: #fdba74;
+  background: #fafafa;
+  border-color: #e0e0e0;
 }
 
 .use-case-icon {
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,27 +192,27 @@ body {
 }
 
 .use-case-icon.blue {
-  background-color: #3b82f6;
+  background-color: var(--gold-600);
 }
 
 .use-case-icon.purple {
-  background-color: #8b5cf6;
+  background-color: var(--black);
 }
 
 .use-case-icon.green {
-  background-color: #10b981;
+  background-color: var(--gold-500);
 }
 
 .use-case-icon.orange {
-  background-color: #f97316;
+  background-color: var(--black-light);
 }
 
 /* Feature Grid */
 .feature-icon {
   width: 3rem;
   height: 3rem;
-  background-color: var(--sage-100);
-  border-radius: 0.75rem;
+  background-color: var(--gold-100);
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,35 +222,33 @@ body {
 .feature-icon svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--sage-600);
+  color: var(--gold-700);
 }
 
 /* Visualizer Placeholder */
 .visualizer-container {
-  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
-  border-radius: 1.5rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
   padding: 2rem;
   margin-bottom: 4rem;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .visualizer-placeholder {
   aspect-ratio: 16/9;
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #f3f4f6;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
 .visualizer-icon {
   width: 4rem;
   height: 4rem;
-  background-color: var(--sage-100);
-  border-radius: 0.75rem;
+  background-color: var(--gold-100);
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -259,22 +274,19 @@ body {
 .final-cta-btn {
   width: 100%;
   padding: 1.25rem 2rem;
-  background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
-  color: white;
+  background: var(--gold-500);
+  color: var(--black);
   font-weight: 700;
   font-size: 1.125rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
 
 .final-cta-btn:hover {
-  background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
-  transform: translateY(-2px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: var(--gold-600);
 }
 
 .reassurance-item {
@@ -329,10 +341,107 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--sage-300);
+  background: var(--gold-400);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sage-400);
+  background: var(--gold-500);
+}
+
+/* Kitchen Image Gallery */
+.kitchen-gallery {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.kitchen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.kitchen-image:hover {
+  opacity: 0.9;
+}
+
+/* Footer Styles */
+footer {
+  background: var(--black);
+  color: white;
+}
+
+.footer-content {
+  padding: 4rem 1rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #cccccc;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--gold-400);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--gold-500);
+}
+
+.footer-social svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #999999;
+  font-size: 0.875rem;
 }

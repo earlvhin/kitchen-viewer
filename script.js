@@ -40,29 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Parallax effect for hero background
-    function handleParallax() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-section');
-        if (hero) {
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
-    }
-
-    // Throttle parallax for performance
-    let ticking = false;
-    function updateParallax() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                handleParallax();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', updateParallax);
 
     // Button hover effects
     const buttons = document.querySelectorAll('button');
