@@ -1,0 +1,338 @@
+/* Custom CSS for Kitchen Visualizer Landing Page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Sage color palette */
+  --sage-50: #f6f7f6;
+  --sage-100: #e3e7e3;
+  --sage-200: #c7d0c7;
+  --sage-300: #9fb1a0;
+  --sage-400: #6d8a70;
+  --sage-500: #52735a;
+  --sage-600: #415c46;
+  --sage-700: #364a3a;
+  --sage-800: #2d3e30;
+  --sage-900: #263329;
+  
+  /* Typography */
+  --font-display: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero Section Styles */
+.hero-bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f1f5f9' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-title {
+  background: linear-gradient(135deg, var(--sage-600), var(--sage-800));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  color: var(--sage-600);
+  padding: 1rem 2rem;
+  border: 1px solid var(--sage-200);
+  border-radius: 0.75rem;
+  background: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  color: var(--sage-800);
+  border-color: var(--sage-300);
+}
+
+/* Step Cards */
+.step-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, var(--sage-500), var(--sage-600));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.step-card:hover .step-number {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.step-accent-dot {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+
+.step-accent-dot.yellow {
+  background-color: #fbbf24;
+}
+
+.step-accent-dot.blue {
+  background-color: #60a5fa;
+}
+
+.step-accent-dot.green {
+  background-color: #34d399;
+}
+
+/* Use Case Cards */
+.use-case-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  transition: all 0.3s ease;
+}
+
+.use-case-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.use-case-card.homeowners {
+  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+  border-color: #bfdbfe;
+}
+
+.use-case-card.designers {
+  background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+  border-color: #e9d5ff;
+}
+
+.use-case-card.builders {
+  background: linear-gradient(135deg, #dcfce7, #d1fae5);
+  border-color: #bbf7d0;
+}
+
+.use-case-card.retailers {
+  background: linear-gradient(135deg, #fed7aa, #fecaca);
+  border-color: #fdba74;
+}
+
+.use-case-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.use-case-icon.blue {
+  background-color: #3b82f6;
+}
+
+.use-case-icon.purple {
+  background-color: #8b5cf6;
+}
+
+.use-case-icon.green {
+  background-color: #10b981;
+}
+
+.use-case-icon.orange {
+  background-color: #f97316;
+}
+
+/* Feature Grid */
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--sage-100);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.feature-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--sage-600);
+}
+
+/* Visualizer Placeholder */
+.visualizer-container {
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.visualizer-placeholder {
+  aspect-ratio: 16/9;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f3f4f6;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.visualizer-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--sage-100);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Trust Indicators */
+.star-rating svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #fbbf24;
+}
+
+.partner-logo {
+  padding: 0.75rem 1.5rem;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Final CTA Section */
+.final-cta-btn {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, var(--sage-600), var(--sage-700));
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.final-cta-btn:hover {
+  background: linear-gradient(135deg, var(--sage-700), var(--sage-800));
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.reassurance-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+}
+
+.reassurance-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #10b981;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  
+  .step-number {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.25rem;
+  }
+  
+  .use-case-card {
+    padding: 1.5rem;
+  }
+  
+  .reassurance-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-400);
+}

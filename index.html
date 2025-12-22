@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Visualizer - Design Your Dream Kitchen in Seconds</title>
+    <meta name="description" content="Design your dream kitchen in seconds with our interactive visualizer. Try endless combinations of countertops and tiles in real time.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f6f7f6',
+                            100: '#e3e7e3',
+                            200: '#c7d0c7',
+                            300: '#9fb1a0',
+                            400: '#6d8a70',
+                            500: '#52735a',
+                            600: '#415c46',
+                            700: '#364a3a',
+                            800: '#2d3e30',
+                            900: '#263329',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-sage-50 overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 hero-bg-pattern opacity-40"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-32">
+            <div class="text-center">
+                <!-- Main headline -->
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8">
+                    <span class="block">Design. Click.</span>
+                    <span class="block hero-title">
+                        Visualize
+                    </span>
+                </h1>
+                
+                <!-- Sub-headline -->
+                <p class="max-w-3xl mx-auto text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-12">
+                    See Your Kitchen Transform Instantly
+                </p>
+                
+                <p class="max-w-2xl mx-auto text-lg text-gray-500 mb-16">
+                    Explore endless combinations of countertops and tiles in real time using our interactive kitchen visualizer. No imagination required — just select and see the change.
+                </p>
+                
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+                    <button class="btn-primary">
+                        Start Visualizing
+                    </button>
+                    <button class="btn-secondary">
+                        See How It Works
+                    </button>
+                </div>
+                
+                <!-- Highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="flex items-center justify-center space-x-3 text-gray-600">
+                        <div class="w-2 h-2 bg-sage-500 rounded-full"></div>
+                        <span class="font-medium">Real-time visual changes</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3 text-gray-600">
+                        <div class="w-2 h-2 bg-sage-500 rounded-full"></div>
+                        <span class="font-medium">Multiple tile & countertop options</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3 text-gray-600">
+                        <div class="w-2 h-2 bg-sage-500 rounded-full"></div>
+                        <span class="font-medium">Easy, intuitive controls</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative element -->
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <!-- Interactive Visualizer Showcase -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Try the Kitchen Visualizer
+                </h2>
+                <p class="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
+                    Choose your preferred floor tiles and countertops, and watch the same kitchen transform instantly. 
+                    No fake renderings — just a realistic visual update of a real kitchen space.
+                </p>
+            </div>
+            
+            <!-- Placeholder for visualizer tool -->
+            <div class="visualizer-container">
+                <div class="visualizer-placeholder">
+                    <div class="text-center">
+                        <div class="visualizer-icon">
+                            <svg class="w-8 h-8 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-500 font-medium">Kitchen Visualizer Tool</p>
+                        <p class="text-gray-400 text-sm">Interactive tool will be embedded here</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Swap materials instantly</h3>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Crisp, realistic visuals</h3>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">True-to-life color representation</h3>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Perfect for homeowners, designers, and developers</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    How It Works
+                </h2>
+                <p class="max-w-2xl mx-auto text-xl text-gray-600">
+                    Simple, fun, and powerful
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="relative mb-8">
+                        <div class="step-number">
+                            1
+                        </div>
+                        <div class="step-accent-dot yellow"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Select Your Countertop</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Choose from marble, quartz, granite, and more premium materials with realistic textures.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="relative mb-8">
+                        <div class="step-number">
+                            2
+                        </div>
+                        <div class="step-accent-dot blue"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Pick Your Floor Tile</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Experiment with textures, colors, and finishes to find your perfect match.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="relative mb-8">
+                        <div class="step-number">
+                            3
+                        </div>
+                        <div class="step-accent-dot green"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">See It Instantly</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The kitchen updates in real time — no downloads or technical skills needed.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Reassurance line -->
+            <div class="text-center mt-16">
+                <p class="text-lg text-gray-500 font-medium">
+                    No complexity. No design experience required. Just instant inspiration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration & Use Cases -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Built for Inspiration — Perfect for Everyone
+                </h2>
+                <p class="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
+                    Whether you're planning a remodel or helping clients choose materials, our visualizer helps turn ideas into confident decisions.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Homeowners -->
+                <div class="use-case-card homeowners">
+                    <div class="use-case-icon blue">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Homeowners</h3>
+                    <p class="text-gray-600">Visualize before renovating and make confident decisions for your dream kitchen.</p>
+                </div>
+                
+                <!-- Interior Designers -->
+                <div class="use-case-card designers">
+                    <div class="use-case-icon purple">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Interior Designers</h3>
+                    <p class="text-gray-600">Present concepts effortlessly and help clients visualize their space transformation.</p>
+                </div>
+                
+                <!-- Builders & Developers -->
+                <div class="use-case-card builders">
+                    <div class="use-case-icon green">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Builders & Developers</h3>
+                    <p class="text-gray-600">Help clients decide faster and reduce revision cycles in your projects.</p>
+                </div>
+                
+                <!-- Retailers -->
+                <div class="use-case-card retailers">
+                    <div class="use-case-icon orange">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Retailers</h3>
+                    <p class="text-gray-600">Showcase your product possibilities and inspire customers with realistic previews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust, Proof & Call to Action -->
+    <section class="trust-section py-24 bg-gradient-to-br from-sage-50 via-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+                    Start Designing Your Perfect Kitchen Today
+                </h2>
+                
+                <!-- Trust indicators -->
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-12 opacity-60">
+                    <div class="flex items-center space-x-2">
+                        <div class="star-rating flex space-x-1">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 font-medium">4.9/5 from <span data-counter="reviews">2,847</span> reviews</span>
+                    </div>
+                    <div class="text-gray-500">•</div>
+                    <span class="text-gray-600 font-medium">Trusted by <span data-counter="users">50,000</span>+ users</span>
+                </div>
+                
+                <!-- Partner logos placeholder -->
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-16 opacity-40">
+                    <div class="partner-logo">PARTNER</div>
+                    <div class="partner-logo">BRAND</div>
+                    <div class="partner-logo">COMPANY</div>
+                    <div class="partner-logo">RETAILER</div>
+                </div>
+                
+                <!-- Final CTA -->
+                <div class="max-w-md mx-auto">
+                    <button class="final-cta-btn">
+                        Launch the Visualizer
+                    </button>
+                    
+                    <!-- Reassurance text -->
+                    <div class="flex items-center justify-center space-x-6 text-gray-500">
+                        <div class="reassurance-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>It's free</span>
+                        </div>
+                        <div class="reassurance-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>No account required</span>
+                        </div>
+                        <div class="reassurance-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Try unlimited combinations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
