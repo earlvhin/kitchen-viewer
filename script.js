@@ -199,5 +199,111 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Kitchen Visualizer Functionality
+    const kitchenImage1 = document.getElementById('kitchen-image-1');
+    const kitchenImage2 = document.getElementById('kitchen-image-2');
+    const counterButtons = document.querySelectorAll('[data-counter]');
+    const backsplashButtons = document.querySelectorAll('[data-backsplash]');
+    
+    let currentCounter = 'african';
+    let currentBacksplash = 'zermat';
+    
+    // Available combinations (what images we have)
+    const availableCombinations = {
+        'african': ['calacatta', 'zermat'],
+        'agatha': ['alaska', 'nero', 'zermat']
+    };
+    
+    // Function to update available backsplash options
+    function updateAvailableBacksplash() {
+        const availableForCounter = availableCombinations[currentCounter] || [];
+        
+        backsplashButtons.forEach(button => {
+            const backsplashType = button.dataset.backsplash;
+            
+            if (availableForCounter.includes(backsplashType)) {
+                button.style.display = 'flex';
+                button.disabled = false;
+            } else {
+                button.style.display = 'none';
+                button.disabled = true;
+            }
+        });
+        
+        // If current backsplash is not available, select first available one
+        if (!availableForCounter.includes(currentBacksplash)) {
+            currentBacksplash = availableForCounter[0] || 'zermat';
+            
+            // Update active state
+            backsplashButtons.forEach(btn => {
+                if (btn.dataset.backsplash === currentBacksplash) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    }
+    
+    // Function to update kitchen images
+    function updateKitchenImages() {
+        const imagePath1 = `assets/kitchen-visual/${currentCounter}-${currentBacksplash}-1.png`;
+        const imagePath2 = `assets/kitchen-visual/${currentCounter}-${currentBacksplash}-2.png`;
+        
+        // Add loading state
+        kitchenImage1.classList.add('loading');
+        kitchenImage2.classList.add('loading');
+        
+        // Update images
+        kitchenImage1.src = imagePath1;
+        kitchenImage2.src = imagePath2;
+        
+        // Remove loading state when images load
+        kitchenImage1.onload = () => kitchenImage1.classList.remove('loading');
+        kitchenImage2.onload = () => kitchenImage2.classList.remove('loading');
+        
+        console.log(`Kitchen updated: ${currentCounter} + ${currentBacksplash}`);
+    }
+    
+    // Counter selection handler
+    counterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all counter buttons
+            counterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update current counter
+            currentCounter = this.dataset.counter;
+            
+            // Update available backsplash options
+            updateAvailableBacksplash();
+            
+            // Update images
+            updateKitchenImages();
+        });
+    });
+    
+    // Initialize available backsplash options on page load
+    updateAvailableBacksplash();
+    
+    // Backsplash selection handler
+    backsplashButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all backsplash buttons
+            backsplashButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update current backsplash
+            currentBacksplash = this.dataset.backsplash;
+            
+            // Update images
+            updateKitchenImages();
+        });
+    });
+
     console.log('Kitchen Visualizer landing page loaded successfully!');
 });

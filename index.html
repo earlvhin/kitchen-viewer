@@ -110,17 +110,61 @@
                 </p>
             </div>
             
-            <!-- Placeholder for visualizer tool -->
-            <div class="visualizer-container">
-                <div class="visualizer-placeholder">
-                    <div class="text-center">
-                        <div class="visualizer-icon">
-                            <svg class="w-8 h-8 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                            </svg>
+            <!-- Kitchen Visualizer Tool -->
+            <div class="visualizer-container-fullwidth">
+                <!-- Kitchen Image 1 -->
+                <div class="kitchen-image-wrapper">
+                    <img id="kitchen-image-1" src="assets/kitchen-visual/african-zermat-1.png" alt="Kitchen view 1" class="kitchen-display-image">
+                </div>
+                
+                <!-- Kitchen Image 2 -->
+                <div class="kitchen-image-wrapper">
+                    <img id="kitchen-image-2" src="assets/kitchen-visual/african-zermat-2.png" alt="Kitchen view 2" class="kitchen-display-image">
+                </div>
+                
+                <!-- Counter Top Selection -->
+                <div class="control-group">
+                    <div class="title-container">
+                        <h3 class="control-label">Counter Top Material</h3>
+                    </div>
+                    <div class="menu-items-container">
+                        <div class="selection-grid">
+                            <button class="selection-item active" data-counter="african">
+                                <img src="assets/kitchen-visual/selections/counter-top-african.jpg" alt="African counter">
+                                <span class="selection-name">African</span>
+                            </button>
+                            <button class="selection-item" data-counter="agatha">
+                                <img src="assets/kitchen-visual/selections/counter-agatha.jpg" alt="Agatha counter">
+                                <span class="selection-name">Agatha</span>
+                            </button>
                         </div>
-                        <p class="text-gray-500 font-medium">Kitchen Visualizer Tool</p>
-                        <p class="text-gray-400 text-sm">Interactive tool will be embedded here</p>
+                    </div>
+                </div>
+                
+                <!-- Backsplash Selection -->
+                <div class="control-group">
+                    <div class="title-container">
+                        <h3 class="control-label">Backsplash Style</h3>
+                    </div>
+                    <div class="menu-items-container">
+                        <div class="selection-grid">
+                            <button class="selection-item active" data-backsplash="zermat">
+                                <div class="selection-color" style="background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 100%);"></div>
+                                <span class="selection-name">Zermat</span>
+                            </button>
+                            <button class="selection-item" data-backsplash="alaska">
+                                <img src="assets/kitchen-visual/selections/backsplash-alaska.jpg" alt="Alaska backsplash">
+                                <span class="selection-name">Alaska</span>
+                            </button>
+                            <button class="selection-item" data-backsplash="nero">
+                                <img src="assets/kitchen-visual/selections/backsplash-nero.jpg" alt="Nero backsplash">
+                                <span class="selection-name">Nero</span>
+                            </button>
+                            <button class="selection-item" data-backsplash="calacatta">
+                                <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);"></div>
+                                <span class="selection-name">Calacatta</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
