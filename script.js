@@ -200,18 +200,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Kitchen Visualizer Functionality
-    const kitchenImage1 = document.getElementById('kitchen-image-1');
-    const kitchenImage2 = document.getElementById('kitchen-image-2');
+    const kitchenShowcase = document.getElementById('kitchen-showcase');
+    const galleryOverlay = document.getElementById('gallery-overlay');
+    const changeKitchenBtn = document.getElementById('change-kitchen-btn');
+    const galleryContinueBtn = document.getElementById('gallery-continue-btn');
+    const galleryButtons = document.querySelectorAll('[data-kitchen]');
     const counterButtons = document.querySelectorAll('[data-counter]');
     const backsplashButtons = document.querySelectorAll('[data-backsplash]');
+    const cabinetButtons = document.querySelectorAll('[data-cabinet]');
     
     let currentCounter = 'african';
     let currentBacksplash = 'zermat';
+    let currentCabinet = 'oak';
+    let currentKitchen = '1.jpg';
+    let galleryMode = true;
     
     // Available combinations (what images we have)
     const availableCombinations = {
         'african': ['calacatta', 'zermat'],
         'agatha': ['alaska', 'nero', 'zermat']
+    };
+    
+    // Available cabinet combinations
+    const availableCabinets = {
+        'african': ['oak', 'walnut', 'white'],
+        'agatha': ['oak', 'black', 'white']
     };
     
     // Function to update available backsplash options
@@ -245,29 +258,123 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to update kitchen images
+    // Function to update available cabinet options
+    function updateAvailableCabinets() {
+        const availableForCounter = availableCabinets[currentCounter] || [];
+        
+        cabinetButtons.forEach(button => {
+            const cabinetType = button.dataset.cabinet;
+            
+            if (availableForCounter.includes(cabinetType)) {
+                button.style.display = 'flex';
+                button.disabled = false;
+            } else {
+                button.style.display = 'none';
+                button.disabled = true;
+            }
+        });
+        
+        // If current cabinet is not available, select first available one
+        if (!availableForCounter.includes(currentCabinet)) {
+            currentCabinet = availableForCounter[0] || 'oak';
+            
+            // Update active state
+            cabinetButtons.forEach(btn => {
+                if (btn.dataset.cabinet === currentCabinet) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    }
+    
+    // Function to hide gallery overlay
+    function hideGallery() {
+        if (galleryMode) {
+            galleryOverlay.classList.add('hidden');
+            changeKitchenBtn.classList.remove('hidden');
+            galleryMode = false;
+        }
+    }
+    
+    // Function to show gallery overlay
+    function showGallery() {
+        galleryOverlay.classList.remove('hidden');
+        changeKitchenBtn.classList.add('hidden');
+        galleryContinueBtn.classList.add('hidden');
+        galleryMode = true;
+    }
+    
+    // Function to update kitchen showcase
     function updateKitchenImages() {
-        const imagePath1 = `assets/kitchen-visual/${currentCounter}-${currentBacksplash}-1.png`;
-        const imagePath2 = `assets/kitchen-visual/${currentCounter}-${currentBacksplash}-2.png`;
+        let imagePath;
+        
+        if (galleryMode) {
+            // In gallery mode, show selected kitchen
+            imagePath = `assets/kitchen-showcase/${currentKitchen}`;
+        } else {
+            // In material mode, map combinations to different showcase images
+            const showcaseImages = {
+                'african-zermat': 'assets/kitchen-showcase/1.jpg',
+                'african-calacatta': 'assets/kitchen-showcase/2.jpg',
+                'agatha-alaska': 'assets/kitchen-showcase/3.jpg',
+                'agatha-nero': 'assets/kitchen-showcase/4.jpg',
+                'agatha-zermat': 'assets/kitchen-showcase/5.jpg'
+            };
+            
+            const combination = `${currentCounter}-${currentBacksplash}`;
+            imagePath = showcaseImages[combination] || showcaseImages['african-zermat'];
+        }
         
         // Add loading state
-        kitchenImage1.classList.add('loading');
-        kitchenImage2.classList.add('loading');
+        kitchenShowcase.classList.add('loading');
         
-        // Update images
-        kitchenImage1.src = imagePath1;
-        kitchenImage2.src = imagePath2;
+        // Update image
+        kitchenShowcase.src = imagePath;
         
-        // Remove loading state when images load
-        kitchenImage1.onload = () => kitchenImage1.classList.remove('loading');
-        kitchenImage2.onload = () => kitchenImage2.classList.remove('loading');
+        // Remove loading state when image loads
+        kitchenShowcase.onload = () => kitchenShowcase.classList.remove('loading');
         
-        console.log(`Kitchen updated: ${currentCounter} + ${currentBacksplash}`);
+        console.log(`Kitchen updated: ${galleryMode ? 'Gallery' : 'Material'} mode -> ${imagePath}`);
     }
+    
+    // Change Kitchen button handler
+    changeKitchenBtn.addEventListener('click', function() {
+        showGallery();
+    });
+    
+    // Gallery continue button handler
+    galleryContinueBtn.addEventListener('click', function() {
+        hideGallery();
+    });
+    
+    // Gallery selection handler
+    galleryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all gallery buttons
+            galleryButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update current kitchen
+            currentKitchen = this.dataset.kitchen;
+            
+            // Show continue button
+            galleryContinueBtn.classList.remove('hidden');
+            
+            // Update images
+            updateKitchenImages();
+        });
+    });
     
     // Counter selection handler
     counterButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // Hide gallery when material selection starts
+            hideGallery();
+            
             // Remove active class from all counter buttons
             counterButtons.forEach(btn => btn.classList.remove('active'));
             
@@ -280,17 +387,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update available backsplash options
             updateAvailableBacksplash();
             
+            // Update available cabinet options
+            updateAvailableCabinets();
+            
             // Update images
             updateKitchenImages();
         });
     });
     
-    // Initialize available backsplash options on page load
+    // Initialize available options on page load
     updateAvailableBacksplash();
+    updateAvailableCabinets();
     
     // Backsplash selection handler
     backsplashButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // Hide gallery when material selection starts
+            hideGallery();
+            
             // Remove active class from all backsplash buttons
             backsplashButtons.forEach(btn => btn.classList.remove('active'));
             
@@ -299,6 +413,26 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update current backsplash
             currentBacksplash = this.dataset.backsplash;
+            
+            // Update images
+            updateKitchenImages();
+        });
+    });
+    
+    // Cabinet selection handler
+    cabinetButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Hide gallery when material selection starts
+            hideGallery();
+            
+            // Remove active class from all cabinet buttons
+            cabinetButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update current cabinet
+            currentCabinet = this.dataset.cabinet;
             
             // Update images
             updateKitchenImages();

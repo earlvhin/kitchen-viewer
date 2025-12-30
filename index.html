@@ -112,58 +112,136 @@
             
             <!-- Kitchen Visualizer Tool -->
             <div class="visualizer-container-fullwidth">
-                <!-- Kitchen Image 1 -->
-                <div class="kitchen-image-wrapper">
-                    <img id="kitchen-image-1" src="assets/kitchen-visual/african-zermat-1.png" alt="Kitchen view 1" class="kitchen-display-image">
-                </div>
-                
-                <!-- Kitchen Image 2 -->
-                <div class="kitchen-image-wrapper">
-                    <img id="kitchen-image-2" src="assets/kitchen-visual/african-zermat-2.png" alt="Kitchen view 2" class="kitchen-display-image">
-                </div>
-                
-                <!-- Counter Top Selection -->
-                <div class="control-group">
-                    <div class="title-container">
-                        <h3 class="control-label">Counter Top Material</h3>
-                    </div>
-                    <div class="menu-items-container">
-                        <div class="selection-grid">
-                            <button class="selection-item active" data-counter="african">
-                                <img src="assets/kitchen-visual/selections/counter-top-african.jpg" alt="African counter">
-                                <span class="selection-name">African</span>
+                <!-- Kitchen Showcase -->
+                <div class="kitchen-showcase-wrapper">
+                    <img id="kitchen-showcase" src="assets/kitchen-showcase/1.jpg" alt="Kitchen showcase" class="kitchen-display-image">
+                    
+                    <!-- Change Space Button -->
+                    <button class="change-kitchen-btn hidden" id="change-kitchen-btn">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2z"></path>
+                        </svg>
+                        Change Space
+                    </button>
+                    
+                    <!-- Kitchen Gallery Selector Overlay -->
+                    <div class="gallery-overlay" id="gallery-overlay">
+                        <div class="gallery-header">
+                            <h3>Choose Your Space</h3>
+                            <p>Select a room to start customizing</p>
+                        </div>
+                        <div class="gallery-grid">
+                            <button class="gallery-item active" data-kitchen="1.jpg">
+                                <img src="assets/kitchen-showcase/1.jpg" alt="Interior space 1">
                             </button>
-                            <button class="selection-item" data-counter="agatha">
-                                <img src="assets/kitchen-visual/selections/counter-agatha.jpg" alt="Agatha counter">
-                                <span class="selection-name">Agatha</span>
+                            <button class="gallery-item" data-kitchen="2.jpg">
+                                <img src="assets/kitchen-showcase/2.jpg" alt="Interior space 2">
+                            </button>
+                            <button class="gallery-item" data-kitchen="3.jpg">
+                                <img src="assets/kitchen-showcase/3.jpg" alt="Interior space 3">
+                            </button>
+                            <button class="gallery-item" data-kitchen="4.jpg">
+                                <img src="assets/kitchen-showcase/4.jpg" alt="Interior space 4">
+                            </button>
+                            <button class="gallery-item" data-kitchen="5.jpg">
+                                <img src="assets/kitchen-showcase/5.jpg" alt="Interior space 5">
+                            </button>
+                            <button class="gallery-item" data-kitchen="6.jpg">
+                                <img src="assets/kitchen-showcase/6.jpg" alt="Interior space 6">
+                            </button>
+                            <button class="gallery-item" data-kitchen="7.jpg">
+                                <img src="assets/kitchen-showcase/7.jpg" alt="Interior space 7">
+                            </button>
+                            <button class="gallery-item" data-kitchen="8.jpg">
+                                <img src="assets/kitchen-showcase/8.jpg" alt="Interior space 8">
+                            </button>
+                            <button class="gallery-item" data-kitchen="9.jpg">
+                                <img src="assets/kitchen-showcase/9.jpg" alt="Interior space 9">
                             </button>
                         </div>
+                        
+                        <!-- Continue Button -->
+                        <button class="gallery-continue-btn" id="gallery-continue-btn">
+                            Start Customizing
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Backsplash Selection -->
-                <div class="control-group">
-                    <div class="title-container">
-                        <h3 class="control-label">Backsplash Style</h3>
+                <!-- Controls Panel -->
+                <div class="controls-panel">
+                    <!-- Counter Top Selection -->
+                    <div class="control-group">
+                        <div class="title-container">
+                            <h3 class="control-label">Counter Top Material</h3>
+                        </div>
+                        <div class="menu-items-container">
+                            <div class="selection-grid">
+                                <button class="selection-item active" data-counter="african">
+                                    <img src="assets/selections/counter-top-african.jpg" alt="African counter">
+                                    <span class="selection-name">African</span>
+                                </button>
+                                <button class="selection-item" data-counter="agatha">
+                                    <img src="assets/selections/counter-agatha.jpg" alt="Agatha counter">
+                                    <span class="selection-name">Agatha</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="menu-items-container">
-                        <div class="selection-grid">
-                            <button class="selection-item active" data-backsplash="zermat">
-                                <div class="selection-color" style="background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 100%);"></div>
-                                <span class="selection-name">Zermat</span>
-                            </button>
-                            <button class="selection-item" data-backsplash="alaska">
-                                <img src="assets/kitchen-visual/selections/backsplash-alaska.jpg" alt="Alaska backsplash">
-                                <span class="selection-name">Alaska</span>
-                            </button>
-                            <button class="selection-item" data-backsplash="nero">
-                                <img src="assets/kitchen-visual/selections/backsplash-nero.jpg" alt="Nero backsplash">
-                                <span class="selection-name">Nero</span>
-                            </button>
-                            <button class="selection-item" data-backsplash="calacatta">
-                                <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);"></div>
-                                <span class="selection-name">Calacatta</span>
-                            </button>
+                    
+                    <!-- Backsplash Selection -->
+                    <div class="control-group">
+                        <div class="title-container">
+                            <h3 class="control-label">Backsplash Style</h3>
+                        </div>
+                        <div class="menu-items-container">
+                            <div class="selection-grid">
+                                <button class="selection-item active" data-backsplash="zermat">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 100%);"></div>
+                                    <span class="selection-name">Zermat</span>
+                                </button>
+                                <button class="selection-item" data-backsplash="alaska">
+                                    <img src="assets/selections/backsplash-alaska.jpg" alt="Alaska backsplash">
+                                    <span class="selection-name">Alaska</span>
+                                </button>
+                                <button class="selection-item" data-backsplash="nero">
+                                    <img src="assets/selections/backsplash-nero.jpg" alt="Nero backsplash">
+                                    <span class="selection-name">Nero</span>
+                                </button>
+                                <button class="selection-item" data-backsplash="calacatta">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);"></div>
+                                    <span class="selection-name">Calacatta</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cabinet Texture Selection -->
+                    <div class="control-group">
+                        <div class="title-container">
+                            <h3 class="control-label">Cabinet Texture</h3>
+                        </div>
+                        <div class="menu-items-container">
+                            <div class="selection-grid">
+                                <button class="selection-item active" data-cabinet="oak">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #d2691e 0%, #a0522d 100%);"></div>
+                                    <span class="selection-name">Oak</span>
+                                </button>
+                                <button class="selection-item" data-cabinet="walnut">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);"></div>
+                                    <span class="selection-name">Walnut</span>
+                                </button>
+                                <button class="selection-item" data-cabinet="white">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);"></div>
+                                    <span class="selection-name">White</span>
+                                </button>
+                                <button class="selection-item" data-cabinet="black">
+                                    <div class="selection-color" style="background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);"></div>
+                                    <span class="selection-name">Black</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
