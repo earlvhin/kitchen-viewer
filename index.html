@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Visualizer - Design Your Dream Kitchen in Seconds</title>
-    <meta name="description" content="Design your dream kitchen in seconds with our interactive visualizer. Try endless combinations of countertops and tiles in real time.">
+    <title>Space Visualizer - Design Your Dream Space in Seconds</title>
+    <meta name="description" content="Design your dream space in seconds with our interactive visualizer. Try endless combinations of countertops and tiles in real time.">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
@@ -62,7 +62,7 @@
                 </p>
                 
                 <p class="max-w-2xl mx-auto text-lg text-gray-500 mb-16">
-                    Explore endless combinations of countertops and tiles in real time using our interactive kitchen visualizer. No imagination required — just select and see the change.
+                    Explore endless combinations of countertops and tiles in real time using our interactive space visualizer. No imagination required — just select and see the change.
                 </p>
                 
                 <!-- CTAs -->
@@ -102,11 +102,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                    Try the Kitchen Visualizer
+                    Try the Space Visualizer
                 </h2>
                 <p class="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
-                    Choose your preferred floor tiles and countertops, and watch the same kitchen transform instantly. 
-                    No fake renderings — just a realistic visual update of a real kitchen space.
+                    Choose your preferred floor tiles and countertops, and watch the same space transform instantly. 
+                    No fake renderings — just a realistic visual update of a real interior space.
                 </p>
             </div>
             
@@ -114,10 +114,10 @@
             <div class="visualizer-container-fullwidth">
                 <!-- Kitchen Showcase -->
                 <div class="kitchen-showcase-wrapper">
-                    <img id="kitchen-showcase" src="assets/kitchen-showcase/1.jpg" alt="Kitchen showcase" class="kitchen-display-image">
+                    <img id="space-showcase" src="assets/kitchen-showcase/1.jpg" alt="Space showcase" class="space-display-image">
                     
                     <!-- Change Space Button -->
-                    <button class="change-kitchen-btn hidden" id="change-kitchen-btn">
+                    <button class="change-space-btn hidden" id="change-space-btn">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2z"></path>
                         </svg>
@@ -140,24 +140,6 @@
                             <button class="gallery-item" data-kitchen="3.jpg">
                                 <img src="assets/kitchen-showcase/3.jpg" alt="Interior space 3">
                             </button>
-                            <button class="gallery-item" data-kitchen="4.jpg">
-                                <img src="assets/kitchen-showcase/4.jpg" alt="Interior space 4">
-                            </button>
-                            <button class="gallery-item" data-kitchen="5.jpg">
-                                <img src="assets/kitchen-showcase/5.jpg" alt="Interior space 5">
-                            </button>
-                            <button class="gallery-item" data-kitchen="6.jpg">
-                                <img src="assets/kitchen-showcase/6.jpg" alt="Interior space 6">
-                            </button>
-                            <button class="gallery-item" data-kitchen="7.jpg">
-                                <img src="assets/kitchen-showcase/7.jpg" alt="Interior space 7">
-                            </button>
-                            <button class="gallery-item" data-kitchen="8.jpg">
-                                <img src="assets/kitchen-showcase/8.jpg" alt="Interior space 8">
-                            </button>
-                            <button class="gallery-item" data-kitchen="9.jpg">
-                                <img src="assets/kitchen-showcase/9.jpg" alt="Interior space 9">
-                            </button>
                         </div>
                         
                         <!-- Continue Button -->
@@ -179,13 +161,13 @@
                         </div>
                         <div class="menu-items-container">
                             <div class="selection-grid">
-                                <button class="selection-item active" data-counter="african">
-                                    <img src="assets/selections/counter-top-african.jpg" alt="African counter">
-                                    <span class="selection-name">African</span>
+                                <button class="selection-item active" data-counter="african-rainbow">
+                                    <img src="assets/selections/countertop/african-rainbow.jpg" alt="African Rainbow">
+                                    <span class="selection-name">African Rainbow</span>
                                 </button>
-                                <button class="selection-item" data-counter="agatha">
-                                    <img src="assets/selections/counter-agatha.jpg" alt="Agatha counter">
-                                    <span class="selection-name">Agatha</span>
+                                <button class="selection-item" data-counter="agatha-black">
+                                    <img src="assets/selections/countertop/agatha-black.jpg" alt="Agatha Black">
+                                    <span class="selection-name">Agatha Black</span>
                                 </button>
                             </div>
                         </div>
@@ -198,21 +180,13 @@
                         </div>
                         <div class="menu-items-container">
                             <div class="selection-grid">
-                                <button class="selection-item active" data-backsplash="zermat">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 100%);"></div>
-                                    <span class="selection-name">Zermat</span>
+                                <button class="selection-item active" data-backsplash="alaska-gray">
+                                    <img src="assets/selections/backsplash/alaska-gray.jpg" alt="Alaska Gray">
+                                    <span class="selection-name">Alaska Gray</span>
                                 </button>
-                                <button class="selection-item" data-backsplash="alaska">
-                                    <img src="assets/selections/backsplash-alaska.jpg" alt="Alaska backsplash">
-                                    <span class="selection-name">Alaska</span>
-                                </button>
-                                <button class="selection-item" data-backsplash="nero">
-                                    <img src="assets/selections/backsplash-nero.jpg" alt="Nero backsplash">
-                                    <span class="selection-name">Nero</span>
-                                </button>
-                                <button class="selection-item" data-backsplash="calacatta">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);"></div>
-                                    <span class="selection-name">Calacatta</span>
+                                <button class="selection-item" data-backsplash="alaska-white">
+                                    <img src="assets/selections/backsplash/alaska-white.jpg" alt="Alaska White">
+                                    <span class="selection-name">Alaska White</span>
                                 </button>
                             </div>
                         </div>
@@ -225,21 +199,13 @@
                         </div>
                         <div class="menu-items-container">
                             <div class="selection-grid">
-                                <button class="selection-item active" data-cabinet="oak">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #d2691e 0%, #a0522d 100%);"></div>
-                                    <span class="selection-name">Oak</span>
-                                </button>
-                                <button class="selection-item" data-cabinet="walnut">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);"></div>
-                                    <span class="selection-name">Walnut</span>
+                                <button class="selection-item active" data-cabinet="beige">
+                                    <img src="assets/selections/cabinet/cabinet-beige.png" alt="Beige Cabinet">
+                                    <span class="selection-name">Beige</span>
                                 </button>
                                 <button class="selection-item" data-cabinet="white">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);"></div>
+                                    <img src="assets/selections/cabinet/cabinet-white.png" alt="White">
                                     <span class="selection-name">White</span>
-                                </button>
-                                <button class="selection-item" data-cabinet="black">
-                                    <div class="selection-color" style="background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);"></div>
-                                    <span class="selection-name">Black</span>
                                 </button>
                             </div>
                         </div>
@@ -526,10 +492,10 @@
             <div class="footer-grid">
                 <!-- About Section -->
                 <div class="footer-section">
-                    <h3>Kitchen Visualizer</h3>
+                    <h3>Space Visualizer</h3>
                     <p>
-                        Transform your kitchen design process with our interactive visualizer. 
-                        See your dream kitchen come to life in real-time.
+                        Transform your interior design process with our interactive visualizer. 
+                        See your dream space come to life in real-time.
                     </p>
                     <div class="footer-social">
                         <a href="#" aria-label="Facebook">
@@ -593,7 +559,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Kitchen Visualizer. All rights reserved.</p>
+                <p>&copy; 2024 Space Visualizer. All rights reserved.</p>
             </div>
         </div>
     </footer>

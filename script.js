@@ -1,4 +1,4 @@
-// Kitchen Visualizer Landing Page JavaScript
+// Space Visualizer Landing Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
@@ -199,101 +199,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Kitchen Visualizer Functionality
-    const kitchenShowcase = document.getElementById('kitchen-showcase');
+    // Space Visualizer Functionality
+    const spaceShowcase = document.getElementById('space-showcase');
     const galleryOverlay = document.getElementById('gallery-overlay');
-    const changeKitchenBtn = document.getElementById('change-kitchen-btn');
+    const changeSpaceBtn = document.getElementById('change-space-btn');
     const galleryContinueBtn = document.getElementById('gallery-continue-btn');
     const galleryButtons = document.querySelectorAll('[data-kitchen]');
     const counterButtons = document.querySelectorAll('[data-counter]');
     const backsplashButtons = document.querySelectorAll('[data-backsplash]');
     const cabinetButtons = document.querySelectorAll('[data-cabinet]');
     
-    let currentCounter = 'african';
-    let currentBacksplash = 'zermat';
-    let currentCabinet = 'oak';
-    let currentKitchen = '1.jpg';
+    let currentCounter = 'african-rainbow';
+    let currentBacksplash = 'alaska-gray';
+    let currentCabinet = 'beige';
+    let currentSpace = '1.jpg';
     let galleryMode = true;
     
-    // Available combinations (what images we have)
-    const availableCombinations = {
-        'african': ['calacatta', 'zermat'],
-        'agatha': ['alaska', 'nero', 'zermat']
-    };
+    // Show all options - no filtering needed
+    // All material combinations are available
     
-    // Available cabinet combinations
-    const availableCabinets = {
-        'african': ['oak', 'walnut', 'white'],
-        'agatha': ['oak', 'black', 'white']
-    };
-    
-    // Function to update available backsplash options
-    function updateAvailableBacksplash() {
-        const availableForCounter = availableCombinations[currentCounter] || [];
-        
-        backsplashButtons.forEach(button => {
-            const backsplashType = button.dataset.backsplash;
-            
-            if (availableForCounter.includes(backsplashType)) {
-                button.style.display = 'flex';
-                button.disabled = false;
-            } else {
-                button.style.display = 'none';
-                button.disabled = true;
-            }
-        });
-        
-        // If current backsplash is not available, select first available one
-        if (!availableForCounter.includes(currentBacksplash)) {
-            currentBacksplash = availableForCounter[0] || 'zermat';
-            
-            // Update active state
-            backsplashButtons.forEach(btn => {
-                if (btn.dataset.backsplash === currentBacksplash) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-    }
-    
-    // Function to update available cabinet options
-    function updateAvailableCabinets() {
-        const availableForCounter = availableCabinets[currentCounter] || [];
-        
-        cabinetButtons.forEach(button => {
-            const cabinetType = button.dataset.cabinet;
-            
-            if (availableForCounter.includes(cabinetType)) {
-                button.style.display = 'flex';
-                button.disabled = false;
-            } else {
-                button.style.display = 'none';
-                button.disabled = true;
-            }
-        });
-        
-        // If current cabinet is not available, select first available one
-        if (!availableForCounter.includes(currentCabinet)) {
-            currentCabinet = availableForCounter[0] || 'oak';
-            
-            // Update active state
-            cabinetButtons.forEach(btn => {
-                if (btn.dataset.cabinet === currentCabinet) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-    }
+    // All options are always available - no filtering needed
     
     // Function to hide gallery overlay
     function hideGallery() {
         if (galleryMode) {
             galleryOverlay.classList.add('hidden');
-            changeKitchenBtn.classList.remove('hidden');
+            changeSpaceBtn.classList.remove('hidden');
             galleryMode = false;
         }
     }
@@ -301,46 +232,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to show gallery overlay
     function showGallery() {
         galleryOverlay.classList.remove('hidden');
-        changeKitchenBtn.classList.add('hidden');
-        galleryContinueBtn.classList.add('hidden');
+        changeSpaceBtn.classList.add('hidden');
+        galleryContinueBtn.classList.remove('hidden');
         galleryMode = true;
     }
     
-    // Function to update kitchen showcase
-    function updateKitchenImages() {
+    // Function to update space showcase
+    function updateSpaceImages() {
         let imagePath;
         
         if (galleryMode) {
-            // In gallery mode, show selected kitchen
-            imagePath = `assets/kitchen-showcase/${currentKitchen}`;
+            // In gallery mode, show selected space
+            imagePath = `assets/kitchen-showcase/${currentSpace}`;
         } else {
-            // In material mode, map combinations to different showcase images
-            const showcaseImages = {
-                'african-zermat': 'assets/kitchen-showcase/1.jpg',
-                'african-calacatta': 'assets/kitchen-showcase/2.jpg',
-                'agatha-alaska': 'assets/kitchen-showcase/3.jpg',
-                'agatha-nero': 'assets/kitchen-showcase/4.jpg',
-                'agatha-zermat': 'assets/kitchen-showcase/5.jpg'
-            };
-            
-            const combination = `${currentCounter}-${currentBacksplash}`;
-            imagePath = showcaseImages[combination] || showcaseImages['african-zermat'];
+            // In material mode, show the currently selected space
+            imagePath = `assets/kitchen-showcase/${currentSpace}`;
         }
         
         // Add loading state
-        kitchenShowcase.classList.add('loading');
+        spaceShowcase.classList.add('loading');
         
         // Update image
-        kitchenShowcase.src = imagePath;
+        spaceShowcase.src = imagePath;
         
         // Remove loading state when image loads
-        kitchenShowcase.onload = () => kitchenShowcase.classList.remove('loading');
+        spaceShowcase.onload = () => spaceShowcase.classList.remove('loading');
         
-        console.log(`Kitchen updated: ${galleryMode ? 'Gallery' : 'Material'} mode -> ${imagePath}`);
+        console.log(`Space updated: ${galleryMode ? 'Gallery' : 'Material'} mode -> ${imagePath}`);
     }
     
-    // Change Kitchen button handler
-    changeKitchenBtn.addEventListener('click', function() {
+    // Change Space button handler
+    changeSpaceBtn.addEventListener('click', function() {
         showGallery();
     });
     
@@ -358,14 +280,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked button
             this.classList.add('active');
             
-            // Update current kitchen
-            currentKitchen = this.dataset.kitchen;
+            // Update current space
+            currentSpace = this.dataset.kitchen;
             
             // Show continue button
             galleryContinueBtn.classList.remove('hidden');
             
             // Update images
-            updateKitchenImages();
+            updateSpaceImages();
         });
     });
     
@@ -384,20 +306,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update current counter
             currentCounter = this.dataset.counter;
             
-            // Update available backsplash options
-            updateAvailableBacksplash();
-            
-            // Update available cabinet options
-            updateAvailableCabinets();
-            
             // Update images
-            updateKitchenImages();
+            updateSpaceImages();
         });
     });
     
-    // Initialize available options on page load
-    updateAvailableBacksplash();
-    updateAvailableCabinets();
+    // Initialize showcase on page load
+    updateSpaceImages();
     
     // Backsplash selection handler
     backsplashButtons.forEach(button => {
@@ -415,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentBacksplash = this.dataset.backsplash;
             
             // Update images
-            updateKitchenImages();
+            updateSpaceImages();
         });
     });
     
@@ -435,9 +350,9 @@ document.addEventListener('DOMContentLoaded', function() {
             currentCabinet = this.dataset.cabinet;
             
             // Update images
-            updateKitchenImages();
+            updateSpaceImages();
         });
     });
 
-    console.log('Kitchen Visualizer landing page loaded successfully!');
+    console.log('Space Visualizer landing page loaded successfully!');
 });
