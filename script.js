@@ -209,10 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const backsplashButtons = document.querySelectorAll('[data-backsplash]');
     const cabinetButtons = document.querySelectorAll('[data-cabinet]');
     
-    let currentCounter = 'african-rainbow';
-    let currentBacksplash = 'alaska-gray';
-    let currentCabinet = 'beige';
-    let currentSpace = '1.jpg';
+    let currentCounter = null; // null means not selected
+    let currentBacksplash = null; // null means not selected
+    let currentCabinet = null; // null means not selected
+    let currentSpace = '1'; // just the number, no .jpg
     let galleryMode = true;
     
     // Show all options - no filtering needed
@@ -237,28 +237,54 @@ document.addEventListener('DOMContentLoaded', function() {
         galleryMode = true;
     }
     
+    // Function to build combination filename based on selected materials
+    function buildCombinationFilename() {
+        let parts = [];
+        
+        if (currentCounter) parts.push(currentCounter);
+        if (currentBacksplash) parts.push(currentBacksplash);
+        // Treat 'white' cabinet as no cabinet selection (default state)
+        if (currentCabinet && currentCabinet !== 'white') parts.push(currentCabinet);
+        
+        if (parts.length === 0) {
+            return 'default.jpg';
+        }
+        
+        return parts.join('-') + '.jpeg';
+    }
+    
     // Function to update space showcase
     function updateSpaceImages() {
         let imagePath;
         
         if (galleryMode) {
-            // In gallery mode, show selected space
-            imagePath = `assets/kitchen-showcase/${currentSpace}`;
+            // In gallery mode, show default from space-material-variations
+            imagePath = `assets/space-material-variations/${currentSpace}/default.jpg`;
         } else {
-            // In material mode, show the currently selected space
-            imagePath = `assets/kitchen-showcase/${currentSpace}`;
+            // In material mode, show combination from space-material-variations
+            const filename = buildCombinationFilename();
+            imagePath = `assets/space-material-variations/${currentSpace}/${filename}`;
         }
         
         // Add loading state
         spaceShowcase.classList.add('loading');
         
-        // Update image
-        spaceShowcase.src = imagePath;
+        // Create a new image to test if it exists
+        const testImg = new Image();
+        testImg.onload = function() {
+            // Image exists, use it
+            spaceShowcase.src = imagePath;
+            spaceShowcase.classList.remove('loading');
+        };
+        testImg.onerror = function() {
+            // Image doesn't exist, fall back to default
+            console.log(`Image not found: ${imagePath}, falling back to default`);
+            spaceShowcase.src = `assets/space-material-variations/${currentSpace}/default.jpg`;
+            spaceShowcase.classList.remove('loading');
+        };
+        testImg.src = imagePath;
         
-        // Remove loading state when image loads
-        spaceShowcase.onload = () => spaceShowcase.classList.remove('loading');
-        
-        console.log(`Space updated: ${galleryMode ? 'Gallery' : 'Material'} mode -> ${imagePath}`);
+        console.log(`Trying to load: ${imagePath}`);
     }
     
     // Change Space button handler
@@ -280,8 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked button
             this.classList.add('active');
             
-            // Update current space
-            currentSpace = this.dataset.kitchen;
+            // Update current space (remove .jpg extension)
+            currentSpace = this.dataset.kitchen.replace('.jpg', '');
             
             // Show continue button
             galleryContinueBtn.classList.remove('hidden');
@@ -291,20 +317,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Counter selection handler
+    // Counter selection handler with deselection capability
     counterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Hide gallery when material selection starts
             hideGallery();
             
-            // Remove active class from all counter buttons
-            counterButtons.forEach(btn => btn.classList.remove('active'));
+            const selectedCounter = this.dataset.counter;
             
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Update current counter
-            currentCounter = this.dataset.counter;
+            if (currentCounter === selectedCounter) {
+                // Deselect if clicking the same option
+                currentCounter = null;
+                this.classList.remove('active');
+            } else {
+                // Select new option
+                counterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentCounter = selectedCounter;
+            }
             
             // Update images
             updateSpaceImages();
@@ -314,40 +344,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize showcase on page load
     updateSpaceImages();
     
-    // Backsplash selection handler
+    // Backsplash selection handler with deselection capability
     backsplashButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Hide gallery when material selection starts
             hideGallery();
             
-            // Remove active class from all backsplash buttons
-            backsplashButtons.forEach(btn => btn.classList.remove('active'));
+            const selectedBacksplash = this.dataset.backsplash;
             
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Update current backsplash
-            currentBacksplash = this.dataset.backsplash;
+            if (currentBacksplash === selectedBacksplash) {
+                // Deselect if clicking the same option
+                currentBacksplash = null;
+                this.classList.remove('active');
+            } else {
+                // Select new option
+                backsplashButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentBacksplash = selectedBacksplash;
+            }
             
             // Update images
             updateSpaceImages();
         });
     });
     
-    // Cabinet selection handler
+    // Cabinet selection handler with deselection capability
     cabinetButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Hide gallery when material selection starts
             hideGallery();
             
-            // Remove active class from all cabinet buttons
-            cabinetButtons.forEach(btn => btn.classList.remove('active'));
+            const selectedCabinet = this.dataset.cabinet;
             
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Update current cabinet
-            currentCabinet = this.dataset.cabinet;
+            if (currentCabinet === selectedCabinet) {
+                // Deselect if clicking the same option
+                currentCabinet = null;
+                this.classList.remove('active');
+            } else {
+                // Select new option
+                cabinetButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentCabinet = selectedCabinet;
+            }
             
             // Update images
             updateSpaceImages();
