@@ -190,6 +190,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
+    // Try the Visualizer button scroll functionality
+    const tryVisualizerBtn = document.getElementById('try-visualizer-btn');
+    if (tryVisualizerBtn) {
+        tryVisualizerBtn.addEventListener('click', function() {
+            const spaceVisualizerSection = document.getElementById('space-visualizer');
+            if (spaceVisualizerSection) {
+                spaceVisualizerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Start Visualizing button scroll functionality
+    const startVisualizingBtn = document.getElementById('start-visualizing-btn');
+    if (startVisualizingBtn) {
+        startVisualizingBtn.addEventListener('click', function() {
+            const spaceVisualizerSection = document.getElementById('space-visualizer');
+            if (spaceVisualizerSection) {
+                spaceVisualizerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // See How It Works button scroll functionality
+    const seeHowItWorksBtn = document.getElementById('see-how-it-works-btn');
+    if (seeHowItWorksBtn) {
+        seeHowItWorksBtn.addEventListener('click', function() {
+            const howItWorksSection = document.getElementById('how-it-works');
+            if (howItWorksSection) {
+                howItWorksSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
     // Example: Add loading to main CTA buttons
     document.addEventListener('click', function(e) {
         if (e.target.matches('.btn-primary') || e.target.matches('.final-cta-btn')) {
