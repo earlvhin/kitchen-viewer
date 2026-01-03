@@ -220,11 +220,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // All options are always available - no filtering needed
     
+    // Get kitchen showcase wrapper element
+    const kitchenShowcaseWrapper = document.querySelector('.kitchen-showcase-wrapper');
+    
     // Function to hide gallery overlay
     function hideGallery() {
         if (galleryMode) {
             galleryOverlay.classList.add('hidden');
             changeSpaceBtn.classList.remove('hidden');
+            // Add space-selected class for mobile height adjustment
+            if (kitchenShowcaseWrapper) {
+                kitchenShowcaseWrapper.classList.add('space-selected');
+            }
             galleryMode = false;
         }
     }
@@ -234,6 +241,10 @@ document.addEventListener('DOMContentLoaded', function() {
         galleryOverlay.classList.remove('hidden');
         changeSpaceBtn.classList.add('hidden');
         galleryContinueBtn.classList.remove('hidden');
+        // Remove space-selected class for mobile height adjustment
+        if (kitchenShowcaseWrapper) {
+            kitchenShowcaseWrapper.classList.remove('space-selected');
+        }
         galleryMode = true;
     }
     
